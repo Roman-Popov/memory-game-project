@@ -298,3 +298,68 @@ h1 {
 }
 
 
+
+/* FOOTER SECTION */
+
+footer {
+    /* background: blanchedalmond; */
+    font-family: 'Maven Pro', sans-serif;
+    position: absolute;
+    bottom: 5px;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    border-radius: 0.5em;
+    font-family: 'Maven Pro', sans-serif;
+    color: white;
+}
+
+.footer-text {
+    background: linear-gradient(90deg, transparent, rgb(9, 119, 153), transparent);
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.credit {
+    position: absolute;
+    left: 1em;
+    width: 20em;
+}
+
+.credit a {
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid white;
+    margin-left: 0.5em;
+}
+
+.credit a:hover {
+    color: #e1ae9e;
+    border-color: #e1ae9e;
+}
+
+.copyright {
+    width: 25em;
+}
+
+
+.contacts {
+    position: absolute;
+    right: 0;
+    width: 20em;
+}
+
+.contacts a {
+    margin-left: 1.5em;
+    display: flex;
+    align-items: center;
+}
+
+.contacts img {
+    max-height: 1.5em;
+    max-width: 1.5em;
+}
