@@ -215,7 +215,14 @@ h1 {
 
 /* LEADERBOARD SECTION */
 
+.wrapper {
+    display: flex;
+    justify-items: center;
+    position: relative;
+}
+
 .leaderboard {
+    position: absolute;
     background: lightcoral;
     width: 400px;
     height: 500px;
