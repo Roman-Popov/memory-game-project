@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <title>Memory Game</title>
     <link rel="icon" type="image/png" href="img/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Memory Game by Roman Popov RPDS">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/responsive.css">
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700|Berkshire+Swash" rel="stylesheet">
 </head>
 
@@ -25,6 +27,7 @@
 
         <div class="current-rate">
             <div class="counter">
+                <i class="fa fa-paw" title="Moves"></i>
                 <span>Moves</span><span id="moves">0</span>
             </div>
 
@@ -35,6 +38,7 @@
             </ul>
 
             <div class="counter">
+                <i class="fa fa-hourglass-half" title="Time"></i>
                 <span>Time</span><span id="time">00:00</span>
             </div>
         </div>
@@ -204,7 +208,7 @@
 
         <div class="copyright footer-text">© 2018 Roman Popov All Rights Reserved.</div>
 
-         <div class="contacts footer-text">
+        <div class="contacts footer-text">
             <a href="https://github.com/Roman-Popov">
                 <img src="img/github-icon.png" alt="GitHub" class="icon-cnt" title="GitHub">
             </a>

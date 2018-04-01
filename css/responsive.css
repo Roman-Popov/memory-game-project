@@ -1,0 +1,184 @@
+@media screen and (max-width: 1320px) {
+
+    .leaderboard {
+        z-index: 999;
+        width: 100%;
+        left: 0;
+        background: rgba(173, 216, 230, 0.95);
+        display: none;
+        max-height: 100%;
+        overflow-x: auto;
+    }
+}
+
+
+
+@media screen and (max-width: 1000px) {
+
+    footer {
+        flex-wrap: wrap;
+        height: 7em;
+    }
+
+    .credit,
+    .copyright,
+    .contacts {
+        position: relative;
+    }
+
+    .contacts {
+        width: 100%;
+        height: 4em;
+        order: 0;
+    }
+
+    .credit {
+        background: linear-gradient(90deg, transparent, rgb(9, 119, 153));
+    }
+
+    .copyright {
+        background: linear-gradient(-90deg, transparent, rgb(9, 119, 153));
+    }
+
+    .credit,
+    .copyright {
+        width: 50%;
+        order: 2;
+        height: 3em;
+        left: auto;
+    }
+
+    .contacts a {
+        margin: 0 1.5em;
+    }
+
+    .contacts img {
+        max-height: 2.5em;
+        max-width: 2.5em;
+    }
+}
+
+
+
+@media screen and (max-width: 450px) {
+
+    .main-header {
+        font-size: 0.5em;
+    }
+
+    .control-panel,
+    .wrapper {
+        width: 90%;
+    }
+
+    .control-panel {
+        height: 70px;
+        font-size: 1em;
+        margin: 1em;
+        flex-wrap: wrap;
+        padding: 0.5em 0 1em;
+    }
+
+    .btn {
+        width: 85px;
+        height: 45px;
+        border-radius: 40px;
+        color: white;
+    }
+
+    .current-rate {
+        width: 100%;
+        order: 3;
+        margin-top: 0.5em;
+    }
+
+    .star-rating {
+        width: 28%;
+    }
+
+    .counter {
+        position: relative;
+    }
+
+    .counter span {
+        width: auto;
+    }
+
+    .counter i {
+        display: inline;
+    }
+
+    .counter span:first-of-type {
+        display: none;
+    }
+
+    .deck {
+        height: auto;
+        min-height: 360px;
+        max-width: 360px;
+        display: flex;
+        align-items: center;
+    }
+
+    .deck ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rotate {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        transition: 0.5s linear;
+        transform-style: preserve-3d;
+    }
+
+    section {
+        font-size: 0.8em;
+    }
+
+    footer {
+        /* display: none; */
+        height: auto;
+        /* position: relative; */
+    }
+
+    .contacts a {
+        margin: 0 1em;
+    }
+
+    .contacts img {
+        max-height: 2em;
+        max-width: 2em;
+    }
+
+    .credit,
+    .copyright {
+        width: 100%;
+        order: 2;
+        font-size: 0.75em;
+        background: linear-gradient(90deg, transparent, rgb(9, 119, 153), transparent);
+        height: 2em;
+    }
+}
+
+
+
+@media screen and (max-width: 380px), screen and (max-height: 600px) {
+
+    .wrapper {
+        margin-bottom: 3em;
+    }
+
+    footer {
+        position: relative;
+    }
+
+}
+
+
+
+
+
+
