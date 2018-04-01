@@ -1,0 +1,122 @@
+
+/* DECK SECTION */
+
+
+.deck {
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    background: linear-gradient(160deg, rgba(2, 201, 185, 0.9), rgba(169, 126, 205, 0.9));
+    margin: auto;
+    box-sizing: border-box;
+    border-radius: 40px;
+}
+
+.deck ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    perspective: 1000;
+}
+
+.card {
+    margin: 10px;
+    perspective: 200px;
+}
+
+.rotate {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    transition: 0.5s linear;
+    transform-style: preserve-3d;
+}
+
+.rotate i,
+.back {
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+    box-sizing: border-box;
+}
+
+.rotate i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+    font-size: 4em;
+    background: lightblue;
+    transition: background linear 0.5s 0.25s;
+}
+
+.back {
+    background: #2e3d49;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.check {
+    transform: rotateY(180deg);
+}
+
+.false {
+    border: 0px solid rgb(222, 172, 159);
+    box-shadow: inset 0 0 0 0em rgb(222, 172, 159);
+    background: rgb(255, 255, 145) !important;
+    animation: false 0.75s ease-in-out;
+}
+
+@keyframes false {
+    0% {
+        transform: rotateZ(0deg) rotateY(180deg);
+    }
+    10% {
+        transform: rotateZ(-45deg) rotateY(180deg);
+
+    }
+    30% {
+        transform: rotateZ(45deg) rotateY(180deg);
+    }
+
+    50% {
+        transform: rotateZ(0deg) rotateY(180deg);
+        box-shadow: inset 0 0 0.2em 0.1em rgb(222, 172, 159);
+        border: 0.05em solid rgb(222, 172, 159);
+    }
+}
+
+.true {
+    border: 0 solid seagreen;
+    box-shadow: inset 0 0 0 0 seagreen;
+    background: lightgreen !important;
+    animation: true 1.5s ease-in-out;
+}
+
+@keyframes true {
+    0% {
+        transform: scale(1, 1) rotateY(180deg);
+
+    }
+    10% {
+        transform: scale(1, 0.5) rotateY(180deg);
+    }
+    20% {
+        transform: scale(0.5, 1) rotateY(180deg);
+    }
+    30% {
+        transform: scale(1, 0.8) rotateY(180deg);
+    }
+    40% {
+        transform: scale(0.8, 1) rotateY(180deg);
+    }
+    50% {
+        transform: scale(1) rotateY(180deg);
+        border: 0.05em solid seagreen;
+        box-shadow: inset 0 0 0.2em 0.1em seagreen;
+    }
+}
+
