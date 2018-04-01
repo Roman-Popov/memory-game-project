@@ -1,0 +1,82 @@
+
+body {
+    text-align: center;
+}
+
+/* LEADERBOARD SECTION */
+
+.leaderboard {
+    background: lightcoral;
+    width: 400px;
+    height: 500px;
+    left: calc(500px + (((100vw - 500px) / 2) - 400px) / 2);
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.leaderboard {
+    background: rgba(173, 216, 230, 0.8);
+    box-sizing: border-box;
+    border-radius: 40px;
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.leaderboard h2 {
+    margin: 1em 0;
+}
+
+
+.leaderboard table {
+    border-collapse: collapse;
+}
+
+.leaderboard tr {
+    height: 2em;
+    vertical-align: middle;
+
+}
+
+.leaderboard th i,
+.leaderboard th span {
+    cursor: help;
+}
+
+.leaderboard tr td {
+    border: 2px solid rgba(195, 225, 235, 0.95);
+    background: rgba(173, 216, 230, 0.5);
+    box-sizing: border-box;
+}
+
+.leaderboard tr th:first-child,
+.leaderboard tr th:last-child,
+.leaderboard tr td:first-child,
+.leaderboard tr td:last-child {
+    border-left: none;
+    border-right: none;
+}
+
+.lb-pos {
+    width: 28px;
+}
+
+.lb-name {
+    width: 145px;
+}
+
+.lb-stars {
+    width: 22px;
+}
+
+.lb-moves {
+    width: 43px;
+}
+
+.lb-time {
+    width: 60px;
+}
+
+.lb-score {
+    width: 70px;
+}
+
