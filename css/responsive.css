@@ -5,8 +5,6 @@
         width: 100%;
         left: 0;
         background: rgba(173, 216, 230, 0.95);
-        max-height: 100%;
-        overflow-x: auto;
     }
 }
 
@@ -59,7 +57,7 @@
 
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
 
     .main-header {
         font-size: 0.5em;
@@ -71,11 +69,12 @@
     }
 
     .control-panel {
-        height: 70px;
+        box-sizing: border-box;
+        height: auto;
         font-size: 1em;
         margin: 1em;
         flex-wrap: wrap;
-        padding: 0.5em 0 1em;
+        padding: 0.75em 0;
     }
 
     .btn {
@@ -88,7 +87,7 @@
     .current-rate {
         width: 100%;
         order: 3;
-        margin-top: 0.5em;
+        margin-top: 0.75em;
     }
 
     .star-rating {
@@ -111,28 +110,6 @@
         display: none;
     }
 
-    .deck {
-        height: auto;
-        min-height: 360px;
-        max-width: 360px;
-        display: flex;
-        align-items: center;
-    }
-
-    .deck ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .rotate {
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        transition: 0.5s linear;
-        transform-style: preserve-3d;
-    }
-
     .rotate i {
         font-size: 3em;
     }
@@ -142,9 +119,7 @@
     }
 
     footer {
-        /* display: none; */
         height: auto;
-        /* position: relative; */
     }
 
     .contacts a {
