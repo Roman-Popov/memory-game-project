@@ -34,7 +34,7 @@ To play again just click reset button.
 
 There is nothing to be installed here. Just open this project in any browser.
 
-### Here is the [link](#)
+### Here is the [link](https://roman-popov.github.io/memory-game-project/)
 
 
 ## Contributing
