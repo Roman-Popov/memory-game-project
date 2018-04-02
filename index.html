@@ -6,6 +6,7 @@
     <title>Memory Game</title>
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#4073ff">
     <meta name="description" content="Memory Game by Roman Popov RPDS">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/app.css">
@@ -203,6 +204,38 @@
             </table>
         </section>
     </div>
+
+    <section class="pop-up hidden">
+            <div class="results">
+                <div class="close-icon" id="btn-close">
+                    <i></i>
+                    <i></i>
+                </div>
+
+                <h2><span class="pop-up-header">Congratulations!</span></h2>
+
+                 <p>You needed <span id="fin-moves">0</span> moves to finish the game.</p>
+                 <p>Your time is <span id="fin-time">00:00</span>.</p>
+                 <p id="fin-stars">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                 </p>
+
+                <img class="fireworks" src="img/fireworks.png" alt="fireworks">
+                <img class="cup golden-cup hidden" src="img/golden-cup.png" alt="golden cup">
+                <img class="cup silver-cup hidden" src="img/silver-cup.png" alt="silver cup">
+                <img class="cup bronze-cup hidden" src="img/bronze-cup.png" alt="bronze cup">
+
+                <p>
+                    Score: <span id="fin-score">000</span>
+                    <form class="print-your-name">
+                        <input id="input-name" type="text" placeholder="Enter your name here">
+                        <input type="submit" id="btn-submit" class="btn" value="Submit!">
+                    </form>
+                </p>
+            </div>
+        </section>
 
     <footer class="footer">
         <div class="credit footer-text">Background by <a href="https://www.instagram.com/mklgustafsson/">Mikael Gustafsson</a></div>

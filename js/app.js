@@ -4,6 +4,7 @@
 const btnRatings = $('#ratings');
 const btnRestart = $('#restart');
 const leaderboard = $('.leaderboard');
+const leaderTable = $('.leaderboard table');
 const cards = $('.rotate');
 const cardsFront = cards.find('i');
 const movesCounter = $('#moves');
@@ -12,7 +13,20 @@ const displayedTime = $('#time');
 const listOfCards = ['fa fa-university', 'fa fa-anchor', 'fa fa-bicycle', 'fa fa-paper-plane-o',
                         'fa fa-bomb', 'fa fa-cube', 'fa fa-bolt', 'fa fa-leaf',
                         'fa fa-cube', 'fa fa-bomb', 'fa fa-university', 'fa fa-anchor',
-                        'fa fa-leaf', 'fa fa-bolt', 'fa fa-paper-plane-o', 'fa fa-bicycle']
+                        'fa fa-leaf', 'fa fa-bolt', 'fa fa-paper-plane-o', 'fa fa-bicycle'];
+const popUpWindow = $('.pop-up');
+const finMoves = $('#fin-moves');
+const finTime = $('#fin-time');
+const finScore = $('#fin-score');
+const finStars = $('#fin-stars');
+const closePopUp = $('#btn-close');
+const nameField = $('#input-name');
+const nameForm = $('.print-your-name');
+const cup = $('.cup');
+const goldenCup = $('.golden-cup');
+const silverCup = $('.silver-cup');
+const bronzeCup = $('.bronze-cup');
+
 
 
 let suffledCards;
@@ -31,6 +45,7 @@ let timerAddFalse;
 let timerRemoveFalse;
 let wrongChoice = false;
 let counterTrue = 0;
+let yourName;
 
 // <<<<<< End of objects and variables declaration section <<<<<<
 
@@ -126,6 +141,7 @@ function restart () {
     cards.removeClass('check');
     cardsFront.attr('class', '');
     suffledCards = shuffle(listOfCards);
+    cup.addClass('hidden');
     setTimeout(() => {
         cardsFront.each(function (i) {
             $(this).addClass(suffledCards[i]);
@@ -150,6 +166,18 @@ function toggleLeaderboard () {
     (leaderboard.css('display') === 'none') ? $(this).html('Hide<br> ratings')
                                             : $(this).html('Show<br> ratings');
     leaderboard.slideToggle();
+}
+
+
+function manageLeaderboard() {
+    $('.data').sort(function (a, b) {
+        return Number($(b).find('.lb-score').html()) - Number($(a).find('.lb-score').html());
+    }).appendTo('.leaderboard table');
+
+    $('.lb-pos').each(function (i) {
+        $(this).html(i + 1);
+        i += 1;
+    })
 }
 
 // <<<<<< End of function declaration section <<<<<<
@@ -217,10 +245,30 @@ cards.click(function() {
         if (counterTrue === 8) {
             stopwatch('stop');
             stopwatchStarted = false;
-            yourRatingIs(moves, time, starMult)
+            finMoves.html(moves);
+            finTime.html(displayedTime.html());
+            finScore.html(yourRatingIs(moves, time, starMult));
+            finStars.html('<i class="fa fa-star"></i>'.repeat(starMult));
+            switch (starMult) {
+                case 1:
+                    bronzeCup.removeClass('hidden');
+                    finStars.css('color', 'rgb(205, 127, 50)');
+                    break;
+                case 2:
+                    silverCup.removeClass('hidden');
+                    finStars.css('color', 'gainsboro');
+                    break;
+                case 3:
+                    goldenCup.removeClass('hidden');
+                    finStars.css('color', 'gold');
+                    break;
+                default:
+                    break;
+            }
             setTimeout(() => {
-                alert('You have won!');
-            }, 1700);
+                popUpWindow.removeClass('hidden');
+            }, 1000);
+
         }
 
         firsCardIsChecked = false;
@@ -253,5 +301,40 @@ btnRestart.click(function () {
 btnRatings.click(function () {
     toggleLeaderboard();
 });
+
+
+closePopUp.click(function() {
+    console.log('close');
+    if (confirm("Do you really want to close this window and not add your name to the leaderboard?")) {
+        popUpWindow.addClass('hidden');
+        restart();
+    } else {
+        return;
+    }
+})
+
+
+nameForm.submit(function(event) {
+    event.preventDefault();
+    yourName = nameField.val();
+    popUpWindow.addClass('hidden');
+
+    setTimeout(() => {
+    }, 300);
+
+    let yourData = '<tr class="data">' +
+                        '<td class="lb-pos">99</td>' +
+                        '<td class="lb-name">' + yourName + '</td>' +
+                        '<td class="lb-stars">' + starMult + '</td>' +
+                        '<td class="lb-moves">' + moves +'</td>' +
+                        '<td class="lb-time">' + finTime.html() + '</td>' +
+                        '<td class="lb-score">' + finScore.html() + '</td>' +
+                   '</tr>';
+    leaderTable.html(leaderTable.html() + yourData);
+
+    manageLeaderboard();
+    toggleLeaderboard();
+    restart();
+})
 
 // <<<<<< End of main section <<<<<<

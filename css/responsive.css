@@ -118,6 +118,25 @@
         font-size: 0.8em;
     }
 
+    .results {
+        font-size: 0.7em;
+    }
+
+    .close-icon {
+        top: -1.25em;
+        right: -1.25em;
+        border-color: white;
+    }
+
+    .close-icon i {
+        background: white;
+    }
+
+    .cup,
+    .fireworks {
+        max-height: 5em;
+    }
+
     footer {
         height: auto;
     }
