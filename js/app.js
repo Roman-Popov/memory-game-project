@@ -163,8 +163,8 @@ function yourRatingIs(moves, time, starMult) {
 
 
 function toggleLeaderboard () {
-    (leaderboard.css('display') === 'none') ? $(this).html('Hide<br> ratings')
-                                            : $(this).html('Show<br> ratings');
+    (leaderboard.css('display') === 'none') ? btnRatings.html('Hide<br> ratings')
+                                            : btnRatings.html('Show<br> ratings');
     leaderboard.slideToggle();
 }
 
