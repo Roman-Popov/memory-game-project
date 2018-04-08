@@ -1,6 +1,7 @@
 
 // >>>>>> Objects and variables declaration section >>>>>>
 
+const btn = $('.btn');
 const btnRatings = $('#ratings');
 const btnRestart = $('#restart');
 const leaderboard = $('.leaderboard');
@@ -19,7 +20,8 @@ const finMoves = $('#fin-moves');
 const finTime = $('#fin-time');
 const finScore = $('#fin-score');
 const finStars = $('#fin-stars');
-const closePopUp = $('#btn-close');
+const btnClosePopUp = $('#btn-close');
+const btnSubmit = $('#btn-submit');
 const nameField = $('#input-name');
 const nameForm = $('.print-your-name');
 const cup = $('.cup');
@@ -163,8 +165,8 @@ function yourRatingIs(moves, time, starMult) {
 
 
 function toggleLeaderboard () {
-    (leaderboard.css('display') === 'none') ? $(this).html('Hide<br> ratings')
-                                            : $(this).html('Show<br> ratings');
+    (leaderboard.css('display') === 'none') ? btnRatings.html('Hide<br> ratings')
+                                            : btnRatings.html('Show<br> ratings');
     leaderboard.slideToggle();
 }
 
@@ -180,6 +182,41 @@ function manageLeaderboard() {
     })
 }
 
+
+function trackKeyboard(e) {
+
+    // Check for TAB keypress
+    if (e.keyCode === 9) {
+        // SHIFT + TAB
+        if (e.shiftKey) {
+            if (btnClosePopUp.is(':focus')) {
+                e.preventDefault();
+                btnSubmit.focus();
+            }
+            // TAB
+        } else {
+            if (btnSubmit.is(':focus')) {
+                e.preventDefault();
+                btnClosePopUp.focus();
+            }
+        }
+    }
+
+    // Check for ESC keypress
+    if (e.keyCode === 27) {
+        closeConfirm();
+    }
+}
+
+
+function closeConfirm() {
+    if (confirm("Do you really want to close this window and not add your name to the leaderboard?")) {
+        popUpWindow.addClass('hidden');
+        restart();
+    } else {
+        return;
+    }
+}
 // <<<<<< End of function declaration section <<<<<<
 
 
@@ -190,7 +227,13 @@ leaderboard.hide();
 restart();
 
 
-cards.click(function() {
+cards.click(function(e) {
+
+    // if clicked by mouse (NOT keyboard) - delete focus
+    if (e.originalEvent.x != 0) {
+        e.target.blur();
+    }
+
     if (stopwatchStarted === false) {
         stopwatch('start');
         stopwatchStarted = true;
@@ -265,10 +308,15 @@ cards.click(function() {
                 default:
                     break;
             }
+
             setTimeout(() => {
                 popUpWindow.removeClass('hidden');
             }, 1000);
 
+            // Additional timeout, because I don't know why .focus() doesn't work in previous timeout
+            setTimeout(() => {
+                nameField.focus();
+            }, 1100);
         }
 
         firsCardIsChecked = false;
@@ -303,14 +351,8 @@ btnRatings.click(function () {
 });
 
 
-closePopUp.click(function() {
-    console.log('close');
-    if (confirm("Do you really want to close this window and not add your name to the leaderboard?")) {
-        popUpWindow.addClass('hidden');
-        restart();
-    } else {
-        return;
-    }
+btnClosePopUp.click(function() {
+    closeConfirm();
 })
 
 
@@ -318,9 +360,6 @@ nameForm.submit(function(event) {
     event.preventDefault();
     yourName = nameField.val();
     popUpWindow.addClass('hidden');
-
-    setTimeout(() => {
-    }, 300);
 
     let yourData = '<tr class="data">' +
                         '<td class="lb-pos">99</td>' +
@@ -333,8 +372,22 @@ nameForm.submit(function(event) {
     leaderTable.html(leaderTable.html() + yourData);
 
     manageLeaderboard();
-    toggleLeaderboard();
     restart();
+
+    if (leaderboard.css('display') === 'none') {
+        toggleLeaderboard();
+    }
+})
+
+
+popUpWindow.keydown(trackKeyboard)
+
+
+btn.click(function (e) {
+    // If button was pressed via mouse click
+    if (e.originalEvent.x != 0) {
+        btn.blur();
+    }
 })
 
 // <<<<<< End of main section <<<<<<
