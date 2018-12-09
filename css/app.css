@@ -4,7 +4,7 @@ body {
     min-height: 100vh;
     width: 100vw;
     margin: 0;
-    background-image: url(../img/background.png);
+    background-image: url(../img/background.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -40,17 +40,12 @@ a {
     max-height: 4em;
 }
 
-
-
-
-
 h1 {
     font-family: 'Berkshire Swash', cursive;
     color: white;
     font-size: 3em;
     margin: 0.5em 0 0;
 }
-
 
 
 /* CONTROL PANEL SECTION */
@@ -133,7 +128,6 @@ h1 {
 }
 
 
-
 /* DECK SECTION */
 
 .deck,
@@ -144,8 +138,8 @@ h1 {
 }
 
 .deck {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 65vh;
+    max-height: 65vh;
     width: 90vw;
     height: 90vw;
     padding: 10px;
@@ -166,15 +160,13 @@ h1 {
     perspective: 1000;
 }
 
-
-
-
 .card {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: calc(100% / 4.8);
+    max-height: calc(100% / 4.8);
     width: 18vw;
     height: 18vw;
     perspective: 200px;
+    margin: 1px;
 }
 
 .rotate {
@@ -287,7 +279,6 @@ h1 {
 }
 
 
-
 /* LEADERBOARD SECTION */
 
 .wrapper {
@@ -369,7 +360,6 @@ h1 {
 }
 
 
-
 /* FOOTER SECTION */
 
 footer {
@@ -431,7 +421,6 @@ footer {
     max-height: 1.5em;
     max-width: 1.5em;
 }
-
 
 
 /* POP-UP SECTION */
@@ -556,7 +545,6 @@ footer {
     top: 9.5em;
 }
 
-
 .cup {
     right: 1.5em;
     top: 9em;
@@ -595,4 +583,187 @@ footer {
 
 #submit {
     margin-left: 1em;
+}
+
+@media screen and (max-width: 1320px) {
+    .leaderboard {
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        background: rgba(173, 216, 230, 0.95);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .deck {
+        max-width: 60vh;
+        max-height: 60vh;
+    }
+
+    footer {
+        flex-wrap: wrap;
+        height: 4em;
+    }
+
+    .credit,
+    .copyright,
+    .contacts {
+        position: relative;
+    }
+
+    .contacts {
+        width: 100%;
+        order: 0;
+    }
+
+    .credit {
+        background: linear-gradient(90deg, transparent, rgb(9, 119, 153));
+    }
+
+    .copyright {
+        background: linear-gradient(-90deg, transparent, rgb(9, 119, 153));
+    }
+
+    .credit,
+    .copyright {
+        width: 50%;
+        order: 2;
+        left: auto;
+    }
+
+    .contacts a {
+        margin: 0 1.5em;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .main-header {
+        font-size: 0.5em;
+    }
+
+    .control-panel {
+        box-sizing: border-box;
+        height: auto;
+        font-size: 1em;
+        margin: 1em;
+        flex-wrap: wrap;
+        padding: 0.75em 0;
+    }
+
+    .btn {
+        width: 85px;
+        height: 45px;
+        border-radius: 40px;
+        color: white;
+    }
+
+    .current-rate {
+        width: 100%;
+        order: 3;
+        margin-top: 0.75em;
+    }
+
+    .star-rating {
+        width: 28%;
+    }
+
+    .counter {
+        position: relative;
+    }
+
+    .counter span {
+        width: auto;
+    }
+
+    .counter i {
+        display: inline;
+    }
+
+    .counter span:first-of-type {
+        display: none;
+    }
+
+    .rotate i {
+        font-size: 3em;
+    }
+
+    section {
+        font-size: 0.8em;
+    }
+
+    .results {
+        font-size: 0.7em;
+    }
+
+    .close-icon {
+        top: -1.25em;
+        right: -1.25em;
+        height: 2em;
+        width: 2em;
+        border-color: white;
+    }
+
+    .close-icon i {
+        background: white;
+    }
+
+    .cup,
+    .fireworks {
+        max-height: 5em;
+    }
+
+    footer {
+        height: auto;
+    }
+
+    .contacts {
+        height: 3em;
+    }
+
+    .contacts a {
+        margin: 0 1em;
+    }
+
+    .contacts img {
+        max-height: 2em;
+        max-width: 2em;
+    }
+
+    .credit,
+    .copyright {
+        width: 100%;
+        order: 2;
+        font-size: 0.75em;
+        background: linear-gradient(90deg, transparent, rgb(9, 119, 153), transparent);
+        height: 2em;
+    }
+}
+
+@media screen and (max-height: 700px) and (min-width: 470px) {
+    .wrapper {
+        margin-bottom: 0.7em;
+    }
+
+    footer {
+        position: relative;
+    }
+}
+
+@media screen and (max-height: 630px) {
+    .deck {
+        max-width: 80vh;
+        max-height: 80vh;
+    }
+
+    .rotate i {
+        font-size: calc(60vh / 9);
+    }
+}
+
+@media screen and (min-height: 833px) {
+    .deck {
+        max-width: 500px;
+        max-height: 500px;
+    }
 }
